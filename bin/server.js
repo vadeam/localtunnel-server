@@ -25,7 +25,7 @@ const argv = optimist
         describe: 'IP address to bind to'
     })
     .options('domain', {
-        describe: 'Specify the base domain name. This is optional if hosting localtunnel from a regular example.com domain. This is required if hosting a localtunnel server from a subdomain (i.e. lt.example.dom where clients will be client-app.lt.example.come)',
+        describe: 'Specify the base domain name. This is optional if hosting localtunnel from a regular example.com domain. This is required if hosting a localtunnel server.js from a subdomain (i.e. lt.example.dom where clients will be client-app.lt.example.come)',
     })
     .options('max-sockets', {
         default: 10,
@@ -45,7 +45,7 @@ const server = CreateServer({
 });
 
 server.listen(argv.port, argv.address, () => {
-    debug('server listening on port: %d', server.address().port);
+    debug('server.js listening on port: %d', server.address().port);
 });
 
 process.on('SIGINT', () => {

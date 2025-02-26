@@ -8,6 +8,8 @@
     "type": "git",
     "url": "git://github.com/localtunnel/server.git"
   },
+  "packageManager": "npm@10.9.0",
+  "main": "dist/server.js",
   "dependencies": {
     "book": "1.3.3",
     "debug": "3.1.0",
@@ -21,6 +23,7 @@
     "tldjs": "2.3.1"
   },
   "devDependencies": {
+    "esbuild": "0.25.0",
     "mocha": "5.1.1",
     "node-dev": "3.1.3",
     "supertest": "3.1.0",
@@ -28,7 +31,8 @@
   },
   "scripts": {
     "test": "mocha --check-leaks --require esm './**/*.test.js'",
-    "start": "./bin/server",
-    "dev": "node-dev bin/server --port 3000"
+    "start": "bin/server.js --domain=lt.sharedtalks.com",
+    "build": "esbuild bin/server.js --bundle --platform=node --target=es2022 --outfile=dist/server.js",
+    "dev": "node-dev bin/server.js --port 3000"
   }
 }

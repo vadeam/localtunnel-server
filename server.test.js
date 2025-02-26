@@ -7,7 +7,7 @@ import net from 'net';
 import createServer from './server';
 
 describe('Server', () => {
-    it('server starts and stops', async () => {
+    it('server.js starts and stops', async () => {
         const server = createServer();
         await new Promise(resolve => server.listen(resolve));
         await new Promise(resolve => server.close(resolve));
